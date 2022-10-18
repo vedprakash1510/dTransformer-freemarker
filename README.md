@@ -5,7 +5,7 @@
 We need only one line of code for this -
 
 ```java
-from("undertow:{{server}}/search?useStreaming=true").to("freemarker:test.jslt").log("${body}");
+from("undertow:{{server}}/search?useStreaming=true").to("freemarker:test.ftl").log("${body}");
 ```
 
 
@@ -85,7 +85,7 @@ public class TransformerRouter extends RouteBuilder {
 	@Override
 	public void configure() throws Exception {
 
-		from("undertow:{{server}}/search?useStreaming=true").to("freemarker:test.jslt").log("${body}");
+		from("undertow:{{server}}/search?useStreaming=true").to("freemarker:test.ftl").log("${body}");
 	}
 
 }
@@ -94,7 +94,7 @@ public class TransformerRouter extends RouteBuilder {
 - In the above java code we extended the class and overrided public void configure() method
 - After overriding method we used two components 1) Undetow for REST API and 2) Freemarker for transformation
 - Create a JSON transformation Freemarker Template and put it in the classpath (e.g test.ftl in resource folder) 
-- Now this project is ready, run this project and it will transform JSON based on JSLT template.
+- Now this project is ready, run this project and it will transform JSON based on Freemarker template.
 
 Undertow official website - https://undertow.io/
 
